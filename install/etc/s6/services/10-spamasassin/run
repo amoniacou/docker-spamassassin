@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv sh
 
 while [ ! -f /tmp/state/99-container-init ]
 do
