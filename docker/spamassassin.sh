@@ -12,8 +12,9 @@ if [ ! -f /var/lib/spamassassin/.initialized ]; then
     ### Assets Setup
     if [ ! -f /etc/mail/spamassassin/local.cf ] ; then
         echo '** [spamasassin] Copying Default Configuration'
-        cp -R /assets/mail /etc/
-        #chown -R spamassassin:spamassassin /etc/mail
+        mkdir -p /etc/mail/spamassassin
+        cp -R /assets/mail/* /etc/mail/spamassassin/
+        chown -R spamassassin:spamassassin /etc/mail
     fi
     
     ### Update Spamassassin Ruleset
