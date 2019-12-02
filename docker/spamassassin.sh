@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv sh
 
-if [ ! -f /tmp/state/10-spamassassin ]; then
+if [ ! -f /var/lib/spamassassin/.initialized ]; then
     
     echo "Starting Initialization..."
     ### File Permissions Check
@@ -29,7 +29,7 @@ if [ ! -f /tmp/state/10-spamassassin ]; then
         DEBUG_ARG="--debug"
     fi
     
-    echo 'Initialization Complete' >/tmp/state/10-spamasassin
+    echo 'Initialization Complete' > /var/lib/spamassassin/.initialized
 fi
 
 echo ''
