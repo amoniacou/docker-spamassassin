@@ -1,12 +1,11 @@
-FROM tiredofit/alpine:3.7
-LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
+FROM alpine:3.10
 
 ### Disable Features From Base Image
-   ENV ENABLE_SMTP=false
+ENV ENABLE_SMTP=false
 
 ### Create User
-   RUN addgroup spamassassin && \
-       adduser -S \
+RUN addgroup spamassassin && \
+    adduser -S \
                -D -G spamassassin \
                -h /var/lib/spamassassin/ \
            spamassassin && \
@@ -17,10 +16,8 @@ LABEL maintainer="Dave Conroy (dave at tiredofit dot ca)"
                razor \
                spamassassin \
                && \
-
 ### Cleanup
        rm -rf /var/cache/apk/*
-
 
 ### Add Files
    ADD install /
